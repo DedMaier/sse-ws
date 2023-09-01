@@ -26,11 +26,13 @@ export default class RegisterWidget {
     registerUser () {
         const username = this.usernameInput.value.trim()
         if (!username) {
-            this.formError.textContent = 'Username cannot be empty'
+            // this.formError.textContent = 'Username cannot be empty'
+            this.formError.textContent = 'Имя пользователя не может быть пустым'
             this.formError.style.display = 'block'
             return
         } else if (username.includes(' ')) {
-            this.formError.textContent = 'Username should not contain spaces'
+            this.formError.textContent = 'Имя пользователя не должно содержать пробелов'
+            // this.formError.textContent = 'Username should not contain spaces'
             this.formError.style.display = 'block'
             return
         }
@@ -42,7 +44,8 @@ export default class RegisterWidget {
                 window.chatUsersWidget.container.style.pointerEvents = 'all'
                 window.webSocketApi = new WebSocketApi(window.registerWidget.username)
             } else if (response.status === 400) {
-                this.formError.textContent = 'This username is already taken'
+                this.formError.textContent = 'Это имя пользователя уже занято'
+                // this.formError.textContent = 'This username is already taken'
                 this.formError.style.display = 'block'
             } else {
                 this.formError.textContent = 'Server error'
