@@ -6,7 +6,7 @@ export default class ChatWindowWidget {
         this.messagesContainer = container.querySelector('.messages')
         this.inputContainer = container.querySelector('.messages__submit')
         this.messagesApi = new MessagesApi('https://ahj-homeworks-sse-ws.onrender.com')
-        // window.messagesApi = this.messagesApi
+        window.messagesApi = this.messagesApi
     }
 
     init () {
