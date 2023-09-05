@@ -16,7 +16,8 @@ export default class ChatUsersWidget {
     }
 
     initUsersList () {
-        window.userApi.get().then((data) => {
+        // window.userApi.get().then((data) => {
+        this.userApi.get().then((data) => {
             if (data.status === 200 && data.data) {
                 const allUsers = JSON.parse(data.data)
                 allUsers.forEach(user => {
